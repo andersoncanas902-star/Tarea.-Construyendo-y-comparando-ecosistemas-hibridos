@@ -1,0 +1,42 @@
+{
+  "filtro": "paciente_id=PAC003 y ts en [2026-11-21 18:00, 2026-11-22 00:00)",
+  "plan_ganador": {
+    "isCached": false,
+    "stage": "SORT",
+    "sortPattern": {
+      "ts": -1
+    },
+    "memLimit": 104857600,
+    "type": "simple",
+    "inputStage": {
+      "stage": "COLLSCAN",
+      "filter": {
+        "$and": [
+          {
+            "paciente_id": {
+              "$eq": "PAC003"
+            }
+          },
+          {
+            "ts": {
+              "$lt": "2026-11-22 00:00:00"
+            }
+          },
+          {
+            "ts": {
+              "$gte": "2026-11-21 18:00:00"
+            }
+          }
+        ]
+      },
+      "nss": "hce_telemetria_grupo_6.eventos_telemetria",
+      "direction": "forward"
+    }
+  },
+  "executionStats": {
+    "nReturned": 483,
+    "executionTimeMillis": 232,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 200000
+  }
+}

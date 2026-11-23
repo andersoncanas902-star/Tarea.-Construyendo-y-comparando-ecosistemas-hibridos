@@ -1,0 +1,957 @@
+[
+  {
+    "_id": 55,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T17:19:40Z"
+    },
+    "lecturas": {
+      "fc_lpm": 81,
+      "spo2_pct": 98,
+      "pa_sistolica": 129,
+      "pa_diastolica": 78,
+      "fr_rpm": 13
+    },
+    "meta": {
+      "bateria_pct": 6,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 6%"
+      }
+    ]
+  },
+  {
+    "_id": 96,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T17:52:29Z"
+    },
+    "lecturas": {
+      "fc_lpm": 90,
+      "spo2_pct": 93,
+      "pa_sistolica": 131,
+      "pa_diastolica": 69,
+      "fr_rpm": 23,
+      "temperatura_c": 36.8
+    },
+    "meta": {
+      "bateria_pct": 7,
+      "firmware": "v3.0.1",
+      "red": "4g"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 7%"
+      }
+    ]
+  },
+  {
+    "_id": 106,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T18:01:34Z"
+    },
+    "lecturas": {
+      "fc_lpm": 75,
+      "spo2_pct": 96,
+      "pa_sistolica": 134,
+      "pa_diastolica": 76,
+      "fr_rpm": 14,
+      "temperatura_c": 37.1
+    },
+    "meta": {
+      "bateria_pct": 6,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 6%"
+      }
+    ]
+  },
+  {
+    "_id": 135,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T18:21:44Z"
+    },
+    "lecturas": {
+      "fc_lpm": 74,
+      "spo2_pct": 99,
+      "pa_sistolica": 125,
+      "pa_diastolica": 84,
+      "fr_rpm": 17,
+      "temperatura_c": 37.5
+    },
+    "meta": {
+      "bateria_pct": 7,
+      "firmware": "v2.1.0",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 7%"
+      }
+    ]
+  },
+  {
+    "_id": 300,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T20:30:21Z"
+    },
+    "lecturas": {
+      "fc_lpm": 76,
+      "spo2_pct": 97,
+      "pa_sistolica": 109,
+      "pa_diastolica": 81,
+      "fr_rpm": 15
+    },
+    "meta": {
+      "bateria_pct": 6,
+      "firmware": "v2.1.0",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 6%"
+      }
+    ]
+  },
+  {
+    "_id": 1,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T16:30:10Z"
+    },
+    "lecturas": {
+      "fc_lpm": 71,
+      "spo2_pct": 96,
+      "pa_sistolica": 116,
+      "pa_diastolica": 72,
+      "fr_rpm": 16
+    },
+    "meta": {
+      "bateria_pct": 59,
+      "firmware": "v2.1.3",
+      "red": "4g"
+    }
+  },
+  {
+    "_id": 5,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T16:32:05Z"
+    },
+    "lecturas": {
+      "fc_lpm": 69,
+      "spo2_pct": 98,
+      "pa_sistolica": 108,
+      "pa_diastolica": 70,
+      "fr_rpm": 15
+    },
+    "meta": {
+      "bateria_pct": 47,
+      "firmware": "v2.1.3",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 6,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T16:33:00Z"
+    },
+    "lecturas": {
+      "fc_lpm": 69,
+      "spo2_pct": 99,
+      "pa_sistolica": 96,
+      "pa_diastolica": 95,
+      "fr_rpm": 16
+    },
+    "meta": {
+      "bateria_pct": 37,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 9,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T16:34:13Z"
+    },
+    "lecturas": {
+      "fc_lpm": 54,
+      "spo2_pct": 97,
+      "pa_sistolica": 109,
+      "pa_diastolica": 78,
+      "fr_rpm": 21,
+      "temperatura_c": 37.2
+    },
+    "meta": {
+      "bateria_pct": 24,
+      "firmware": "v2.1.0",
+      "red": "4g"
+    }
+  },
+  {
+    "_id": 12,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "MON-H09",
+    "tipo_dispositivo": "monitor_multiparametro",
+    "ts": {
+      "$date": "2026-10-09T16:35:48Z"
+    },
+    "lecturas": {
+      "fc_lpm": 70,
+      "spo2_pct": 96,
+      "pa_sistolica": 125,
+      "pa_diastolica": 77,
+      "fr_rpm": 15,
+      "temperatura_c": 36.2
+    },
+    "meta": {
+      "bateria_pct": 16,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 15,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T16:40:11Z"
+    },
+    "lecturas": {
+      "fc_lpm": 76,
+      "pasos": 18,
+      "temp_piel_c": 34.9
+    },
+    "meta": {
+      "bateria_pct": 7,
+      "firmware": "v2.1.0",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 7%"
+      }
+    ]
+  },
+  {
+    "_id": 63,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T17:24:50Z"
+    },
+    "lecturas": {
+      "fc_lpm": 66,
+      "pasos": 64,
+      "temp_piel_c": 34.6
+    },
+    "meta": {
+      "bateria_pct": 5,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 5%"
+      }
+    ]
+  },
+  {
+    "_id": 165,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T18:48:46Z"
+    },
+    "lecturas": {
+      "fc_lpm": 73,
+      "pasos": 71,
+      "temp_piel_c": 34.7
+    },
+    "meta": {
+      "bateria_pct": 6,
+      "firmware": "v2.1.0",
+      "red": "4g"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 6%"
+      }
+    ]
+  },
+  {
+    "_id": 255,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T19:53:44Z"
+    },
+    "lecturas": {
+      "fc_lpm": 68,
+      "pasos": 123,
+      "temp_piel_c": 34.1
+    },
+    "meta": {
+      "bateria_pct": 5,
+      "firmware": "v2.1.0",
+      "red": "4g"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 5%"
+      }
+    ]
+  },
+  {
+    "_id": 333,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T20:49:08Z"
+    },
+    "lecturas": {
+      "fc_lpm": 73,
+      "pasos": 20,
+      "temp_piel_c": 34
+    },
+    "meta": {
+      "bateria_pct": 7,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 7%"
+      }
+    ]
+  },
+  {
+    "_id": 2,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T16:30:30Z"
+    },
+    "lecturas": {
+      "fc_lpm": 70,
+      "pasos": 78,
+      "temp_piel_c": 34
+    },
+    "meta": {
+      "bateria_pct": 43,
+      "firmware": "v2.1.0",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 10,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T16:34:47Z"
+    },
+    "lecturas": {
+      "fc_lpm": 64,
+      "pasos": 0,
+      "temp_piel_c": 34.2
+    },
+    "meta": {
+      "bateria_pct": 77,
+      "firmware": "v2.1.3",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 13,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T16:37:02Z"
+    },
+    "lecturas": {
+      "fc_lpm": 92,
+      "pasos": 0,
+      "temp_piel_c": 33.6
+    },
+    "meta": {
+      "bateria_pct": 48,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 14,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T16:39:37Z"
+    },
+    "lecturas": {
+      "fc_lpm": 73,
+      "pasos": 1,
+      "temp_piel_c": 34
+    },
+    "meta": {
+      "bateria_pct": 26,
+      "firmware": "v3.0.1",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 18,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "PUL-H09",
+    "tipo_dispositivo": "pulsera_wearable",
+    "ts": {
+      "$date": "2026-10-09T16:43:02Z"
+    },
+    "lecturas": {
+      "fc_lpm": 70,
+      "pasos": 52,
+      "temp_piel_c": 34.1
+    },
+    "meta": {
+      "bateria_pct": 94,
+      "firmware": "v2.1.3",
+      "red": "4g"
+    }
+  },
+  {
+    "_id": 52,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T17:18:28Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 63.9,
+      "volumen_restante_ml": 660.4
+    },
+    "meta": {
+      "bateria_pct": 6,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 6%"
+      }
+    ]
+  },
+  {
+    "_id": 438,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T22:05:31Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 20.9,
+      "volumen_restante_ml": 11.3
+    },
+    "meta": {
+      "bateria_pct": 50,
+      "firmware": "v2.1.3",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "FIN_INFUSION",
+        "nivel": "advertencia",
+        "mensaje": "Quedan menos de 30 mL"
+      }
+    ]
+  },
+  {
+    "_id": 549,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T23:31:56Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 62,
+      "volumen_restante_ml": 243.5
+    },
+    "meta": {
+      "bateria_pct": 7,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 7%"
+      }
+    ]
+  },
+  {
+    "_id": 556,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T23:37:13Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 60.3,
+      "volumen_restante_ml": 906
+    },
+    "meta": {
+      "bateria_pct": 6,
+      "firmware": "v3.0.1",
+      "red": "4g"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 6%"
+      }
+    ]
+  },
+  {
+    "_id": 615,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-10T00:15:32Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 20.9,
+      "volumen_restante_ml": 13.1
+    },
+    "meta": {
+      "bateria_pct": 65,
+      "firmware": "v2.1.3",
+      "red": "4g"
+    },
+    "alertas": [
+      {
+        "codigo": "FIN_INFUSION",
+        "nivel": "advertencia",
+        "mensaje": "Quedan menos de 30 mL"
+      }
+    ]
+  },
+  {
+    "_id": 3,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T16:31:00Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 129.5,
+      "volumen_restante_ml": 726.4
+    },
+    "meta": {
+      "bateria_pct": 84,
+      "firmware": "v3.0.1",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 4,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T16:31:07Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 44,
+      "volumen_restante_ml": 367.3
+    },
+    "meta": {
+      "bateria_pct": 11,
+      "firmware": "v3.0.1",
+      "red": "4g"
+    }
+  },
+  {
+    "_id": 8,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T16:34:08Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 85.3,
+      "volumen_restante_ml": 38.6
+    },
+    "meta": {
+      "bateria_pct": 57,
+      "firmware": "v3.0.1",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 11,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T16:35:18Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 64,
+      "volumen_restante_ml": 565.7
+    },
+    "meta": {
+      "bateria_pct": 14,
+      "firmware": "v2.1.0",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 22,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "BOM-H09",
+    "tipo_dispositivo": "bomba_infusion",
+    "ts": {
+      "$date": "2026-10-09T16:48:41Z"
+    },
+    "lecturas": {
+      "medicamento": "Insulina cristalina",
+      "velocidad_ml_h": 85.8,
+      "volumen_restante_ml": 644.6
+    },
+    "meta": {
+      "bateria_pct": 86,
+      "firmware": "v2.1.3",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 48,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T17:16:12Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 58,
+      "momento_toma": "ayunas"
+    },
+    "meta": {
+      "bateria_pct": 43,
+      "firmware": "v2.1.3",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "HIPOGLUCEMIA",
+        "nivel": "critica",
+        "mensaje": "Glucosa 58 mg/dL"
+      }
+    ]
+  },
+  {
+    "_id": 329,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T20:46:28Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 63,
+      "momento_toma": "postprandial"
+    },
+    "meta": {
+      "bateria_pct": 90,
+      "firmware": "v3.0.1",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "HIPOGLUCEMIA",
+        "nivel": "critica",
+        "mensaje": "Glucosa 63 mg/dL"
+      }
+    ]
+  },
+  {
+    "_id": 411,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T21:46:11Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 15,
+      "momento_toma": "preprandial"
+    },
+    "meta": {
+      "bateria_pct": 28,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "HIPOGLUCEMIA",
+        "nivel": "critica",
+        "mensaje": "Glucosa 15 mg/dL"
+      }
+    ]
+  },
+  {
+    "_id": 445,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T22:11:40Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 53,
+      "momento_toma": "nocturna"
+    },
+    "meta": {
+      "bateria_pct": 91,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    },
+    "alertas": [
+      {
+        "codigo": "HIPOGLUCEMIA",
+        "nivel": "critica",
+        "mensaje": "Glucosa 53 mg/dL"
+      }
+    ]
+  },
+  {
+    "_id": 463,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T22:25:21Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 158,
+      "momento_toma": "postprandial"
+    },
+    "meta": {
+      "bateria_pct": 7,
+      "firmware": "v3.0.1",
+      "red": "ethernet"
+    },
+    "alertas": [
+      {
+        "codigo": "BATERIA_BAJA",
+        "nivel": "info",
+        "mensaje": "Bateria 7%"
+      }
+    ]
+  },
+  {
+    "_id": 7,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T16:33:05Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 227,
+      "momento_toma": "postprandial"
+    },
+    "meta": {
+      "bateria_pct": 78,
+      "firmware": "v2.1.0",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 36,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T17:02:22Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 130,
+      "momento_toma": "nocturna"
+    },
+    "meta": {
+      "bateria_pct": 53,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 45,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T17:12:32Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 102,
+      "momento_toma": "preprandial"
+    },
+    "meta": {
+      "bateria_pct": 33,
+      "firmware": "v2.1.3",
+      "red": "wifi"
+    }
+  },
+  {
+    "_id": 99,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T17:55:39Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 123,
+      "momento_toma": "postprandial"
+    },
+    "meta": {
+      "bateria_pct": 50,
+      "firmware": "v2.1.3",
+      "red": "ethernet"
+    }
+  },
+  {
+    "_id": 109,
+    "paciente_id": "PAC009",
+    "hospitalizacion_id": "HOSP009",
+    "dispositivo_id": "GLU-H09",
+    "tipo_dispositivo": "glucometro",
+    "ts": {
+      "$date": "2026-10-09T18:04:03Z"
+    },
+    "lecturas": {
+      "glucosa_mg_dl": 92,
+      "momento_toma": "postprandial"
+    },
+    "meta": {
+      "bateria_pct": 75,
+      "firmware": "v3.0.1",
+      "red": "wifi"
+    }
+  }
+]

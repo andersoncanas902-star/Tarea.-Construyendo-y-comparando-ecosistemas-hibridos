@@ -1,0 +1,41 @@
+{
+  "filtro": "paciente_id=PAC003 y ts en [2026-11-21 18:00, 2026-11-22 00:00)",
+  "plan_ganador": {
+    "isCached": false,
+    "stage": "FETCH",
+    "nss": "hce_telemetria_grupo_6.eventos_telemetria",
+    "inputStage": {
+      "stage": "IXSCAN",
+      "nss": "hce_telemetria_grupo_6.eventos_telemetria",
+      "keyPattern": {
+        "paciente_id": 1,
+        "ts": -1
+      },
+      "indexName": "ix_paciente_ts",
+      "isMultiKey": false,
+      "multiKeyPaths": {
+        "paciente_id": [],
+        "ts": []
+      },
+      "isUnique": false,
+      "isSparse": false,
+      "isPartial": false,
+      "indexVersion": 2,
+      "direction": "forward",
+      "indexBounds": {
+        "paciente_id": [
+          "[\"PAC003\", \"PAC003\"]"
+        ],
+        "ts": [
+          "(new Date(1795305600000), new Date(1795284000000)]"
+        ]
+      }
+    }
+  },
+  "executionStats": {
+    "nReturned": 483,
+    "executionTimeMillis": 14,
+    "totalKeysExamined": 483,
+    "totalDocsExamined": 483
+  }
+}

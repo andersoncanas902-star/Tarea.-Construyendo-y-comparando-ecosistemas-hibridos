@@ -1,0 +1,194 @@
+
+=== O2. Lecturas de PAC003 entre 18:00 y 24:00 del 21-nov (3 más recientes) ===
+[
+  {
+    _id: 199999,
+    tipo_dispositivo: 'pulsera_wearable',
+    ts: ISODate('2026-11-21T23:59:39.000Z'),
+    lecturas: {
+      fc_lpm: 91,
+      pasos: 47,
+      temp_piel_c: 33.9
+    }
+  },
+  {
+    _id: 199997,
+    tipo_dispositivo: 'glucometro',
+    ts: ISODate('2026-11-21T23:59:06.000Z'),
+    lecturas: {
+      glucosa_mg_dl: 331,
+      momento_toma: 'ayunas'
+    }
+  },
+  {
+    _id: 199995,
+    tipo_dispositivo: 'pulsera_wearable',
+    ts: ISODate('2026-11-21T23:58:48.000Z'),
+    lecturas: {
+      fc_lpm: 91,
+      pasos: 75,
+      temp_piel_c: 34.3
+    }
+  }
+]
+Docs examinados: 483 | devueltos: 483 | ms: 1
+
+=== O3. Resumen de monitores multiparámetro por paciente ===
+[
+  {
+    _id: 'PAC001',
+    lecturas: 3542,
+    spo2_min: 83,
+    pas_max: 170,
+    fc_prom: 95.3
+  },
+  {
+    _id: 'PAC002',
+    lecturas: 2146,
+    spo2_min: 90,
+    pas_max: 162,
+    fc_prom: 77.3
+  },
+  {
+    _id: 'PAC003',
+    lecturas: 26811,
+    spo2_min: 89,
+    pas_max: 174,
+    fc_prom: 87.5
+  },
+  {
+    _id: 'PAC004',
+    lecturas: 6538,
+    spo2_min: 90,
+    pas_max: 173,
+    fc_prom: 77.4
+  },
+  {
+    _id: 'PAC005',
+    lecturas: 3686,
+    spo2_min: 82,
+    pas_max: 157,
+    fc_prom: 93.3
+  },
+  {
+    _id: 'PAC006',
+    lecturas: 3331,
+    spo2_min: 90,
+    pas_max: 161,
+    fc_prom: 77.5
+  },
+  {
+    _id: 'PAC007',
+    lecturas: 1881,
+    spo2_min: 88,
+    pas_max: 204,
+    fc_prom: 77.4
+  },
+  {
+    _id: 'PAC008',
+    lecturas: 17232,
+    spo2_min: 84,
+    pas_max: 173,
+    fc_prom: 99.5
+  },
+  {
+    _id: 'PAC009',
+    lecturas: 8533,
+    spo2_min: 89,
+    pas_max: 165,
+    fc_prom: 77.5
+  },
+  {
+    _id: 'PAC010',
+    lecturas: 1906,
+    spo2_min: 91,
+    pas_max: 143,
+    fc_prom: 107.7
+  },
+  {
+    _id: 'PAC011',
+    lecturas: 14330,
+    spo2_min: 89,
+    pas_max: 173,
+    fc_prom: 91.5
+  }
+]
+
+=== O4. Alertas críticas desde el 21-nov 00:00 (solo IDs; la identidad está en PostgreSQL) ===
+[
+  {
+    _id: {
+      paciente: 'PAC003',
+      alerta: 'HIPERGLUCEMIA'
+    },
+    veces: 21,
+    ultima: ISODate('2026-11-21T23:59:06.000Z')
+  }
+]
+
+=== Pipeline IA. Tendencia horaria de PAC003 (FC promedio, promedio móvil 3 h, alertas) ===
+[
+  {
+    alertas: 2,
+    hora: ISODate('2026-11-21T00:00:00.000Z'),
+    fc_prom: 87,
+    fc_movil_3h: 87,
+    spo2_prom: 96
+  },
+  {
+    alertas: 0,
+    hora: ISODate('2026-11-21T01:00:00.000Z'),
+    fc_prom: 84.9,
+    fc_movil_3h: 85.9,
+    spo2_prom: 96.3
+  },
+  {
+    alertas: 0,
+    hora: ISODate('2026-11-21T02:00:00.000Z'),
+    fc_prom: 90.4,
+    fc_movil_3h: 87.4,
+    spo2_prom: 96.1
+  },
+  {
+    alertas: 1,
+    hora: ISODate('2026-11-21T03:00:00.000Z'),
+    fc_prom: 88.7,
+    fc_movil_3h: 88,
+    spo2_prom: 96.4
+  },
+  {
+    alertas: 2,
+    hora: ISODate('2026-11-21T04:00:00.000Z'),
+    fc_prom: 88.1,
+    fc_movil_3h: 89.1,
+    spo2_prom: 96.8
+  },
+  {
+    alertas: 1,
+    hora: ISODate('2026-11-21T05:00:00.000Z'),
+    fc_prom: 85.8,
+    fc_movil_3h: 87.6,
+    spo2_prom: 97
+  },
+  {
+    alertas: 2,
+    hora: ISODate('2026-11-21T06:00:00.000Z'),
+    fc_prom: 88.3,
+    fc_movil_3h: 87.4,
+    spo2_prom: 96.6
+  },
+  {
+    alertas: 0,
+    hora: ISODate('2026-11-21T07:00:00.000Z'),
+    fc_prom: 85.7,
+    fc_movil_3h: 86.6,
+    spo2_prom: 96.4
+  }
+]
+
+=== Índices de eventos_telemetria ===
+[
+  '_id_',
+  'ix_paciente_ts',
+  'ix_alerta_nivel_ts'
+]

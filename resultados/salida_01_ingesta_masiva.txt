@@ -1,0 +1,9 @@
+[ACID] 44 asignaciones dispositivo->paciente leídas de PostgreSQL
+[GEN ] 200,000 eventos generados en 3.3 s
+   ...    1,000 eventos insertados
+   ...   51,000 eventos insertados
+   ...  101,000 eventos insertados
+   ...  151,000 eventos insertados
+[BASE] eventos_telemetria: 200,000 docs en 3.24 s  ->  61,653 eventos/s
+[BASE] sesiones_teleconsulta: 400 docs en 0.01 s
+[OK  ] Total en MongoDB: 200,000 eventos, 400 teleconsultas

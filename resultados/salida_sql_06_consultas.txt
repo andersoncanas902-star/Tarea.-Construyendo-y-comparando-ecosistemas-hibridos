@@ -1,0 +1,110 @@
+SET
+SET
+El despliegue de duración está activado.
+=== O2. Lecturas de PAC003 (3 mÃ¡s recientes) ===
+ evento_id |           ts           | tipo_dispositivo | fc_lpm | spo2_pct | glucosa_mg_dl |                       alertas                       
+-----------+------------------------+------------------+--------+----------+---------------+-----------------------------------------------------
+    199999 | 2026-11-21 18:59:39-05 | pulsera_wearable |     91 |          |               | 
+    199997 | 2026-11-21 18:59:06-05 | glucometro       |        |          |           331 | [{"codigo" : "HIPERGLUCEMIA", "nivel" : "critica"}]
+    199995 | 2026-11-21 18:58:48-05 | pulsera_wearable |     91 |          |               | 
+(3 filas)
+
+Duración: 17,139 ms
+--- Plan de ejecuciÃ³n de O2 (busque Seq Scan vs Index Scan) ---
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using ix_ev_ts on eventos_telemetria (actual time=0.014..0.452 rows=483.00 loops=1)
+   Index Cond: ((ts >= '2026-11-21 13:00:00-05'::timestamp with time zone) AND (ts < '2026-11-21 19:00:00-05'::timestamp with time zone))
+   Filter: ((paciente_id)::text = 'PAC003'::text)
+   Rows Removed by Filter: 469
+   Index Searches: 1
+   Buffers: shared hit=23
+ Planning:
+   Buffers: shared hit=60
+ Planning Time: 0.268 ms
+ Execution Time: 0.492 ms
+(10 filas)
+
+Duración: 1,256 ms
+=== O3. Resumen de monitores multiparÃ¡metro por paciente ===
+ paciente_id | lecturas | fc_prom | spo2_min | pas_max 
+-------------+----------+---------+----------+---------
+ PAC001      |     3542 |    95.3 |       83 |     170
+ PAC002      |     2146 |    77.3 |       90 |     162
+ PAC003      |    26811 |    87.5 |       89 |     174
+ PAC004      |     6538 |    77.4 |       90 |     173
+ PAC005      |     3686 |    93.3 |       82 |     157
+ PAC006      |     3331 |    77.5 |       90 |     161
+ PAC007      |     1881 |    77.4 |       88 |     204
+ PAC008      |    17232 |    99.5 |       84 |     173
+ PAC009      |     8533 |    77.5 |       89 |     165
+ PAC010      |     1906 |   107.7 |       91 |     143
+ PAC011      |    14330 |    91.5 |       89 |     173
+(11 filas)
+
+Duración: 79,963 ms
+=== O3 (variante JSONB) ===
+ paciente_id | lecturas | fc_prom | spo2_min 
+-------------+----------+---------+----------
+ PAC001      |     3542 |    95.3 |       83
+ PAC002      |     2146 |    77.3 |       90
+ PAC003      |    26811 |    87.5 |       89
+ PAC004      |     6538 |    77.4 |       90
+ PAC005      |     3686 |    93.3 |       82
+ PAC006      |     3331 |    77.5 |       90
+ PAC007      |     1881 |    77.4 |       88
+ PAC008      |    17232 |    99.5 |       84
+ PAC009      |     8533 |    77.5 |       89
+ PAC010      |     1906 |   107.7 |       91
+ PAC011      |    14330 |    91.5 |       89
+(11 filas)
+
+Duración: 279,348 ms
+=== O4. Alertas crÃ­ticas con identidad (solo PostgreSQL) ===
+    nombre_completo     | numero_cama |  medico_tratante  |           ts           | dispositivo_id |    codigo     |      mensaje      
+------------------------+-------------+-------------------+------------------------+----------------+---------------+-------------------
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 18:59:06-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 331 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 18:50:59-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 335 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 14:44:49-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 348 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 12:57:08-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 314 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 10:43:50-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 349 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 07:54:33-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 319 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 06:58:03-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 320 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 06:28:32-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 314 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 05:13:41-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 337 mg/dL
+ Luz Dary Henao Cardona | 302         | Dr. Oscar Giraldo | 2026-11-21 04:42:46-05 | GLU-H03        | HIPERGLUCEMIA | Glucosa 305 mg/dL
+(10 filas)
+
+Duración: 24,888 ms
+=== Pipeline IA en SQL: tendencia horaria de PAC003 ===
+      hora_utc       | fc_prom | fc_movil_3h | spo2_prom | alertas 
+---------------------+---------+-------------+-----------+---------
+ 2026-11-21 00:00:00 |    87.0 |        87.0 |      96.0 |       2
+ 2026-11-21 01:00:00 |    84.9 |        85.9 |      96.3 |       0
+ 2026-11-21 02:00:00 |    90.4 |        87.4 |      96.1 |       0
+ 2026-11-21 03:00:00 |    88.7 |        88.0 |      96.4 |       1
+ 2026-11-21 04:00:00 |    88.1 |        89.1 |      96.8 |       2
+ 2026-11-21 05:00:00 |    85.8 |        87.6 |      97.0 |       1
+ 2026-11-21 06:00:00 |    88.3 |        87.4 |      96.6 |       2
+ 2026-11-21 07:00:00 |    85.7 |        86.6 |      96.4 |       0
+(8 filas)
+
+Duración: 5,712 ms
+psql:sql/06_consultas_comparativas.sql:97: NOTICE:  la relaciÃ³n Â«ix_ev_paciente_tsÂ» ya existe, omitiendo
+CREATE INDEX
+Duración: 2,190 ms
+psql:sql/06_consultas_comparativas.sql:98: NOTICE:  la relaciÃ³n Â«ix_ev_tsÂ» ya existe, omitiendo
+CREATE INDEX
+Duración: 0,327 ms
+psql:sql/06_consultas_comparativas.sql:99: NOTICE:  la relaciÃ³n Â«ix_alerta_criticaÂ» ya existe, omitiendo
+CREATE INDEX
+Duración: 0,329 ms
+=== TamaÃ±o de las tablas comparativas ===
+       tabla        |  datos  | indices 
+--------------------+---------+---------
+ eventos_jsonb      | 92 MB   | 10 MB
+ eventos_telemetria | 25 MB   | 15 MB
+ alertas_evento     | 1200 kB | 624 kB
+(3 filas)
+
+Duración: 27,049 ms

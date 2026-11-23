@@ -1,0 +1,65 @@
+SET
+SET
+UPDATE 0
+DELETE 0
+=== Estado inicial de las camas 301-303 ===
+ cama_id | numero_cama | estado  | hospitalizacion_actual_id 
+---------+-------------+---------+---------------------------
+ CAMA007 | 301         | ocupada | HOSP011
+ CAMA008 | 302         | ocupada | HOSP003
+ CAMA009 | 303         | libre   | 
+(3 filas)
+
+=== CASO 1: admisión válida (debe funcionar) ===
+CALL
+ hospitalizacion_id | paciente_id | estado | numero_cama | estado_cama 
+--------------------+-------------+--------+-------------+-------------
+ HOSP900            | PAC002      | activa | 303         | ocupada
+(1 fila)
+
+=== CASO 2: cama ocupada (debe fallar y no dejar basura) ===
+psql:sql/04_transacciones_acid.sql:31: ERROR:  La cama CAMA008 no está libre (estado actual: ocupada)
+CONTEXTO:  función PL/pgSQL sp_admitir_paciente(character varying,character varying,character varying,character varying,text) en la línea 15 en RAISE
+ hosp901_creadas 
+-----------------
+               0
+(1 fila)
+
+=== CASO 3: paciente con hospitalización activa (debe fallar) ===
+psql:sql/04_transacciones_acid.sql:39: ERROR:  llave duplicada viola restricción de unicidad «uq_una_hosp_activa_por_paciente»
+DETALLE:  Ya existe la llave (paciente_id)=(PAC003).
+CONTEXTO:  sentencia SQL: «INSERT INTO hospitalizaciones (hospitalizacion_id, paciente_id, medico_id, cama_id,
+                                   servicio_id, fecha_admision, motivo_admision, estado)
+    VALUES (p_hosp_id, p_paciente_id, p_medico_id, p_cama_id,
+            v_servicio, now(), p_motivo, 'activa')»
+función PL/pgSQL sp_admitir_paciente(character varying,character varying,character varying,character varying,text) en la línea 18 en sentencia SQL
+ estado_cama_304_sigue_libre 
+-----------------------------
+ libre
+(1 fila)
+
+=== CASO 4: paciente con cédula repetida (debe fallar) ===
+psql:sql/04_transacciones_acid.sql:48: ERROR:  llave duplicada viola restricción de unicidad «uq_paciente_documento»
+DETALLE:  Ya existe la llave (tipo_documento, numero_documento)=(CC, 43789123).
+=== CASO 5: alta (cierra hospitalización y libera la cama) ===
+CALL
+ hospitalizacion_id |    estado    | tipo_alta | numero_cama | estado_cama 
+--------------------+--------------+-----------+-------------+-------------
+ HOSP900            | dada_de_alta | mejoria   | 303         | libre
+(1 fila)
+
+=== CASO 6: transacción manual que se deshace con ROLLBACK ===
+BEGIN
+UPDATE 1
+ cama_id |    estado     
+---------+---------------
+ CAMA010 | mantenimiento
+(1 fila)
+
+ROLLBACK
+ cama_id | estado 
+---------+--------
+ CAMA010 | libre
+(1 fila)
+
+DELETE 1

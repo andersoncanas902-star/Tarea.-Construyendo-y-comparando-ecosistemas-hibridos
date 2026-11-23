@@ -1,0 +1,315 @@
+{
+  "fecha": "2026-11-22T21:04:07",
+  "eventos": 200000,
+  "entorno": {
+    "so": "Windows-11-10.0.26300-SP0",
+    "cpu": "Intel64 Family 6 Model 165 Stepping 2, GenuineIntel",
+    "ram_gb": 23.8,
+    "python": "3.13.3",
+    "postgresql": "18.6",
+    "mongodb": "9.0.4",
+    "mismo_equipo": true,
+    "nota": "Ambos motores en el mismo PC local, sin réplicas; tiempos con caché caliente"
+  },
+  "O1_ingesta": {
+    "mongo": {
+      "segundos": 3.091,
+      "eventos_por_s": 64703
+    },
+    "mongo_ts": {
+      "segundos": 5.772,
+      "eventos_por_s": 34651
+    },
+    "pg_columnas": {
+      "segundos": 18.757,
+      "eventos_por_s": 10663
+    },
+    "pg_jsonb": {
+      "segundos": 16.185,
+      "eventos_por_s": 12357
+    },
+    "pg_copy": {
+      "segundos": 10.606,
+      "eventos_por_s": 18858
+    }
+  },
+  "alertas_totales": 16174,
+  "verificacion_conteos": {
+    "mongo": 200000,
+    "mongo_ts": 200000,
+    "pg_columnas": 200000,
+    "pg_jsonb": 200000,
+    "alertas_pg": 16174
+  },
+  "consultas": {
+    "O2_consulta_puntual": {
+      "sin_indices": {
+        "mongo": {
+          "mediana_ms": 177.598,
+          "min_ms": 167.973,
+          "max_ms": 237.365,
+          "p95_ms": 220.328,
+          "reps": 30,
+          "filas": 483
+        },
+        "mongo_ts": {
+          "mediana_ms": 8.775,
+          "min_ms": 8.282,
+          "max_ms": 10.751,
+          "p95_ms": 10.264,
+          "reps": 30,
+          "filas": 483
+        },
+        "pg_columnas": {
+          "mediana_ms": 71.261,
+          "min_ms": 65.544,
+          "max_ms": 220.298,
+          "p95_ms": 187.97,
+          "reps": 30,
+          "filas": 483
+        },
+        "pg_jsonb": {
+          "mediana_ms": 76.521,
+          "min_ms": 70.387,
+          "max_ms": 218.351,
+          "p95_ms": 209.712,
+          "reps": 30,
+          "filas": 483
+        }
+      },
+      "con_indices": {
+        "mongo": {
+          "mediana_ms": 5.385,
+          "min_ms": 5.186,
+          "max_ms": 6.101,
+          "p95_ms": 5.693,
+          "reps": 30,
+          "filas": 483
+        },
+        "mongo_ts": {
+          "mediana_ms": 9.202,
+          "min_ms": 8.358,
+          "max_ms": 11.636,
+          "p95_ms": 11.146,
+          "reps": 30,
+          "filas": 483
+        },
+        "pg_columnas": {
+          "mediana_ms": 5.175,
+          "min_ms": 4.228,
+          "max_ms": 6.455,
+          "p95_ms": 6.302,
+          "reps": 30,
+          "filas": 483
+        },
+        "pg_jsonb": {
+          "mediana_ms": 7.746,
+          "min_ms": 7.363,
+          "max_ms": 8.903,
+          "p95_ms": 8.221,
+          "reps": 30,
+          "filas": 483
+        }
+      }
+    },
+    "O3_agregacion": {
+      "sin_indices": {
+        "mongo": {
+          "mediana_ms": 213.808,
+          "min_ms": 207.519,
+          "max_ms": 296.017,
+          "p95_ms": 237.886,
+          "reps": 7,
+          "filas": 11
+        },
+        "mongo_ts": {
+          "mediana_ms": 141.41,
+          "min_ms": 137.685,
+          "max_ms": 160.643,
+          "p95_ms": 153.517,
+          "reps": 7,
+          "filas": 11
+        },
+        "pg_columnas": {
+          "mediana_ms": 70.99,
+          "min_ms": 68.23,
+          "max_ms": 83.164,
+          "p95_ms": 79.679,
+          "reps": 7,
+          "filas": 11
+        },
+        "pg_jsonb": {
+          "mediana_ms": 274.796,
+          "min_ms": 263.503,
+          "max_ms": 370.871,
+          "p95_ms": 295.486,
+          "reps": 7,
+          "filas": 11
+        }
+      },
+      "con_indices": {
+        "mongo": {
+          "mediana_ms": 218.953,
+          "min_ms": 211.167,
+          "max_ms": 262.015,
+          "p95_ms": 249.481,
+          "reps": 7,
+          "filas": 11
+        },
+        "mongo_ts": {
+          "mediana_ms": 135.432,
+          "min_ms": 133.891,
+          "max_ms": 165.719,
+          "p95_ms": 137.32,
+          "reps": 7,
+          "filas": 11
+        },
+        "pg_columnas": {
+          "mediana_ms": 70.199,
+          "min_ms": 67.863,
+          "max_ms": 201.535,
+          "p95_ms": 72.053,
+          "reps": 7,
+          "filas": 11
+        },
+        "pg_jsonb": {
+          "mediana_ms": 289.269,
+          "min_ms": 265.31,
+          "max_ms": 308.873,
+          "p95_ms": 295.842,
+          "reps": 7,
+          "filas": 11
+        }
+      }
+    },
+    "O4_alertas_con_identidad": {
+      "sin_indices": {
+        "hibrida_mongo+pg": {
+          "mediana_ms": 169.327,
+          "min_ms": 163.888,
+          "max_ms": 207.731,
+          "p95_ms": 189.807,
+          "reps": 20,
+          "filas": 21
+        },
+        "solo_pg": {
+          "mediana_ms": 76.154,
+          "min_ms": 67.094,
+          "max_ms": 207.011,
+          "p95_ms": 190.431,
+          "reps": 20,
+          "filas": 21
+        }
+      },
+      "con_indices": {
+        "hibrida_mongo+pg": {
+          "mediana_ms": 1.675,
+          "min_ms": 1.397,
+          "max_ms": 2.22,
+          "p95_ms": 2.164,
+          "reps": 20,
+          "filas": 21
+        },
+        "solo_pg": {
+          "mediana_ms": 9.193,
+          "min_ms": 8.916,
+          "max_ms": 9.545,
+          "p95_ms": 9.525,
+          "reps": 20,
+          "filas": 21
+        }
+      }
+    }
+  },
+  "explain": {
+    "sin_indices": {
+      "mongo_O2": {
+        "etapas": [
+          "SORT",
+          "COLLSCAN"
+        ],
+        "docs_examinados": 200000,
+        "claves_examinadas": 0,
+        "devueltos": 483,
+        "ms_servidor": 232
+      },
+      "pg_O2_plan_resumen": "Gather Merge  (cost=5661.80..7754.04 rows=248 width=175) (actual time=61.299..67.200 rows=483.00 loops=1)",
+      "pg_O2_ms_servidor": 67.307
+    },
+    "con_indices": {
+      "mongo_O2": {
+        "etapas": [
+          "FETCH",
+          "IXSCAN"
+        ],
+        "docs_examinados": 483,
+        "claves_examinadas": 483,
+        "devueltos": 483,
+        "ms_servidor": 14
+      },
+      "pg_O2_plan_resumen": "Index Scan using ix_ev_ts on eventos_telemetria e  (cost=0.42..2255.16 rows=265 width=175) (actual time=0.044..1.464 rows=483.00 loops=1)",
+      "pg_O2_ms_servidor": 1.523
+    }
+  },
+  "tiempo_creacion_indices_s": {
+    "mongo": 1.796,
+    "pg": 1.588
+  },
+  "O5_flexibilidad": {
+    "mongo": {
+      "ms": 22.27,
+      "sentencias_ddl": 0,
+      "cambio_codigo": "ninguno: el documento trae su propio campo"
+    },
+    "pg_columnas": {
+      "ms": 112.06,
+      "ms_ddl": 2.22,
+      "sentencias_ddl": 1,
+      "cambio_codigo": "ALTER TABLE + actualizar INSERT, mapeos y reportes (bloqueo ACCESS EXCLUSIVE durante el ALTER)"
+    },
+    "pg_jsonb": {
+      "ms": 75.88,
+      "sentencias_ddl": 0,
+      "cambio_codigo": "ninguno en la tabla; las consultas deben extraer el campo con ->>"
+    }
+  },
+  "O6_transaccion": {
+    "pg": {
+      "mediana_ms": 1.325,
+      "resultado": "OK - atómica, aislada y reversible"
+    },
+    "mongo": {
+      "resultado": "ERROR",
+      "mensaje": "Transaction numbers are only allowed on a replica set member or mongos"
+    }
+  },
+  "O7_integridad": {
+    "mongo": "ACEPTADO: MongoDB no conoce la tabla de pacientes (no hay llaves foráneas)",
+    "pg": "RECHAZADO: inserción o actualización en la tabla «eventos_telemetria» viola la llave foránea «eventos_telemetria_paciente_id_fkey»",
+    "mongo_sin_paciente_id": "RECHAZADO por el validador $jsonSchema (Document failed validation)"
+  },
+  "O8_almacenamiento": {
+    "mongo:eventos_telemetria": {
+      "datos_mb": 14.68,
+      "datos_sin_comprimir_mb": 58.23,
+      "indices_mb": 6.42
+    },
+    "mongo:eventos_telemetria_ts": {
+      "datos_mb": 3.46,
+      "datos_sin_comprimir_mb": 13.98,
+      "indices_mb": 0.65
+    },
+    "pg:eventos_telemetria": {
+      "datos_mb": 25.03,
+      "indices_mb": 14.65
+    },
+    "pg:alertas_evento": {
+      "datos_mb": 1.17,
+      "indices_mb": 0.61
+    },
+    "pg:eventos_jsonb": {
+      "datos_mb": 92.36,
+      "indices_mb": 10.35
+    }
+  }
+}

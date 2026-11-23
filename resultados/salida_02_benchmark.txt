@@ -1,0 +1,36 @@
+== Preparando estructuras (05_tablas_comparativas.sql y 01_crear_colecciones.js) ==
+== O1 Ingesta masiva de 200,000 eventos ==
+  mongo          3.09 s
+  mongo_ts       5.77 s
+  pg_columnas   18.76 s
+  pg_jsonb      16.18 s
+  pg_copy       10.61 s
+   conteos: {'mongo': 200000, 'mongo_ts': 200000, 'pg_columnas': 200000, 'pg_jsonb': 200000, 'alertas_pg': 16174}
+== Consultas (sin_indices) ==
+  O2_consulta_puntual        mongo              mediana=   177.60 ms  filas=483
+  O2_consulta_puntual        mongo_ts           mediana=     8.78 ms  filas=483
+  O2_consulta_puntual        pg_columnas        mediana=    71.26 ms  filas=483
+  O2_consulta_puntual        pg_jsonb           mediana=    76.52 ms  filas=483
+  O3_agregacion              mongo              mediana=   213.81 ms  filas=11
+  O3_agregacion              mongo_ts           mediana=   141.41 ms  filas=11
+  O3_agregacion              pg_columnas        mediana=    70.99 ms  filas=11
+  O3_agregacion              pg_jsonb           mediana=   274.80 ms  filas=11
+  O4_alertas_con_identidad   hibrida_mongo+pg   mediana=   169.33 ms  filas=21
+  O4_alertas_con_identidad   solo_pg            mediana=    76.15 ms  filas=21
+== Consultas (con_indices) ==
+  O2_consulta_puntual        mongo              mediana=     5.38 ms  filas=483
+  O2_consulta_puntual        mongo_ts           mediana=     9.20 ms  filas=483
+  O2_consulta_puntual        pg_columnas        mediana=     5.17 ms  filas=483
+  O2_consulta_puntual        pg_jsonb           mediana=     7.75 ms  filas=483
+  O3_agregacion              mongo              mediana=   218.95 ms  filas=11
+  O3_agregacion              mongo_ts           mediana=   135.43 ms  filas=11
+  O3_agregacion              pg_columnas        mediana=    70.20 ms  filas=11
+  O3_agregacion              pg_jsonb           mediana=   289.27 ms  filas=11
+  O4_alertas_con_identidad   hibrida_mongo+pg   mediana=     1.68 ms  filas=21
+  O4_alertas_con_identidad   solo_pg            mediana=     9.19 ms  filas=21
+== O5 Flexibilidad / O6 Transacción / O7 Integridad / O8 Almacenamiento ==
+  O5_flexibilidad: {"mongo": {"ms": 22.27, "sentencias_ddl": 0, "cambio_codigo": "ninguno: el documento trae su propio campo"}, "pg_columnas": {"ms": 112.06, "ms_ddl": 2.22, "sentencias_ddl": 1, "cambio_codigo": "ALTER TABLE + actualizar INSERT, mapeos y reportes (bloqueo ACCESS EXCLUSIVE durante el ALTER)"}, "pg_jsonb": {"ms": 75.88, "sentencias_ddl": 0, "cambio_codigo": "ninguno en la tabla; las consultas deben extraer el campo con ->>"}}
+  O6_transaccion: {"pg": {"mediana_ms": 1.325, "resultado": "OK - atómica, aislada y reversible"}, "mongo": {"resultado": "ERROR", "mensaje": "Transaction numbers are only allowed on a replica set member or mongos"}}
+  O7_integridad: {"mongo": "ACEPTADO: MongoDB no conoce la tabla de pacientes (no hay llaves foráneas)", "pg": "RECHAZADO: inserción o actualización en la tabla «eventos_telemetria» viola la llave foránea «eventos_telemetria_paciente_id_fkey»", "mongo_sin_paciente_id": "RECHAZADO por el validador $jsonSchema (Document failed validation)"}
+  O8_almacenamiento: {"mongo:eventos_telemetria": {"datos_mb": 14.68, "datos_sin_comprimir_mb": 58.23, "indices_mb": 6.42}, "mongo:eventos_telemetria_ts": {"datos_mb": 3.46, "datos_sin_comprimir_mb": 13.98, "indices_mb": 0.65}, "pg:eventos_telemetria": {"datos_mb": 25.03, "indices_mb": 14.65}, "pg:alertas_evento": {"datos_mb": 1.17, "indices_mb": 0.61}, "pg:eventos_jsonb": {"datos_mb": 92.36, "indices_mb": 10.35}}
+== Listo. Resultados en C:\Users\Usuario\OneDrive\Documentos\PB\Semestre 4\Base de datos 2\Unidad 3\Tareas\Tarea. Construyendo y comparando ecosistemas híbridos\resultados ==

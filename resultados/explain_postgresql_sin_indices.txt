@@ -1,0 +1,109 @@
+===== O2 pg_columnas (sin_indices) =====
+Gather Merge  (cost=5661.80..7754.04 rows=248 width=175) (actual time=61.299..67.200 rows=483.00 loops=1)
+  Workers Planned: 2
+  Workers Launched: 2
+  Buffers: shared hit=4261 read=1
+  ->  Sort  (cost=4661.78..4662.03 rows=103 width=143) (actual time=11.267..11.284 rows=161.00 loops=3)
+        Sort Key: e.ts DESC
+        Sort Method: quicksort  Memory: 79kB
+        Buffers: shared hit=3275 read=1
+        Worker 0:  Sort Method: quicksort  Memory: 25kB
+        Worker 1:  Sort Method: quicksort  Memory: 25kB
+        ->  Parallel Seq Scan on eventos_telemetria e  (cost=0.00..4658.33 rows=103 width=143) (actual time=10.612..10.678 rows=161.00 loops=3)
+              Filter: ((ts >= '2026-11-21 13:00:00-05'::timestamp with time zone) AND (ts < '2026-11-21 19:00:00-05'::timestamp with time zone) AND ((paciente_id)::text = 'PAC003'::text))
+              Rows Removed by Filter: 66506
+              Buffers: shared hit=3200
+  SubPlan 1
+    ->  Aggregate  (cost=8.31..8.32 rows=1 width=32) (actual time=0.002..0.002 rows=1.00 loops=483)
+          Buffers: shared hit=986
+          ->  Index Scan using alertas_evento_pkey on alertas_evento a  (cost=0.29..8.30 rows=1 width=32) (actual time=0.001..0.001 rows=0.04 loops=483)
+                Index Cond: (evento_id = e.evento_id)
+                Index Searches: 483
+                Buffers: shared hit=986
+Planning:
+  Buffers: shared hit=141 read=3
+Planning Time: 1.877 ms
+Execution Time: 67.307 ms
+
+===== O3 pg_columnas (sin_indices) =====
+Finalize GroupAggregate  (cost=5710.25..5713.77 rows=11 width=51) (actual time=67.568..74.222 rows=11.00 loops=1)
+  Group Key: paciente_id
+  Buffers: shared hit=3216
+  ->  Gather Merge  (cost=5710.25..5713.28 rows=26 width=51) (actual time=67.541..74.181 rows=16.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=3216
+        ->  Sort  (cost=4710.23..4710.26 rows=11 width=51) (actual time=27.165..27.166 rows=5.33 loops=3)
+              Sort Key: paciente_id
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=3216
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=4709.93..4710.04 rows=11 width=51) (actual time=27.101..27.103 rows=5.33 loops=3)
+                    Group Key: paciente_id
+                    Batches: 1  Memory Usage: 32kB
+                    Buffers: shared hit=3200
+                    Worker 0:  Batches: 1  Memory Usage: 32kB
+                    Worker 1:  Batches: 1  Memory Usage: 32kB
+                    ->  Parallel Seq Scan on eventos_telemetria  (cost=0.00..4241.67 rows=37461 width=13) (actual time=0.016..14.518 rows=29978.67 loops=3)
+                          Filter: ((tipo_dispositivo)::text = 'monitor_multiparametro'::text)
+                          Rows Removed by Filter: 36688
+                          Buffers: shared hit=3200
+Planning:
+  Buffers: shared hit=17 read=4
+Planning Time: 0.251 ms
+Execution Time: 74.289 ms
+
+===== O4 solo_pg (sin_indices) =====
+Sort  (cost=5275.66..5275.66 rows=1 width=610) (actual time=64.539..70.265 rows=21.00 loops=1)
+  Sort Key: e.ts DESC
+  Sort Method: quicksort  Memory: 27kB
+  Buffers: shared hit=11006 read=5 dirtied=1
+  ->  Nested Loop Left Join  (cost=1008.89..5275.65 rows=1 width=610) (actual time=34.040..70.236 rows=21.00 loops=1)
+        Buffers: shared hit=11006 read=5 dirtied=1
+        ->  Nested Loop Left Join  (cost=1008.74..5267.35 rows=1 width=422) (actual time=33.983..70.095 rows=21.00 loops=1)
+              Buffers: shared hit=10966 read=3 dirtied=1
+              ->  Nested Loop  (cost=1008.60..5259.15 rows=1 width=436) (actual time=33.906..69.919 rows=21.00 loops=1)
+                    Join Filter: ((p.paciente_id)::text = (h.paciente_id)::text)
+                    Buffers: shared hit=10926 read=1 dirtied=1
+                    ->  Gather  (cost=1008.46..5258.97 rows=1 width=159) (actual time=33.873..69.769 rows=21.00 loops=1)
+                          Workers Planned: 2
+                          Workers Launched: 2
+                          Buffers: shared hit=10884 read=1 dirtied=1
+                          ->  Nested Loop  (cost=8.45..4258.87 rows=1 width=159) (actual time=11.069..13.547 rows=7.00 loops=3)
+                                Buffers: shared hit=10884 read=1 dirtied=1
+                                ->  Hash Join  (cost=8.17..4255.60 rows=6 width=145) (actual time=10.926..11.713 rows=1254.00 loops=3)
+                                      Hash Cond: ((e.paciente_id)::text = (h.paciente_id)::text)
+                                      Buffers: shared hit=3202 read=1 dirtied=1
+                                      ->  Parallel Seq Scan on eventos_telemetria e  (cost=0.00..4241.67 rows=1520 width=31) (actual time=10.869..11.127 rows=1254.00 loops=3)
+                                            Filter: (ts >= '2026-11-20 19:00:00-05'::timestamp with time zone)
+                                            Rows Removed by Filter: 65413
+                                            Buffers: shared hit=3200
+                                      ->  Hash  (cost=8.16..8.16 rows=1 width=116) (actual time=0.141..0.142 rows=2.00 loops=1)
+                                            Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                            Buffers: shared hit=2 read=1 dirtied=1
+                                            ->  Index Scan using uq_una_hosp_activa_por_cama on hospitalizaciones h  (cost=0.14..8.16 rows=1 width=116) (actual time=0.095..0.102 rows=2.00 loops=1)
+                                                  Index Searches: 1
+                                                  Buffers: shared hit=2 read=1 dirtied=1
+                                ->  Index Scan using alertas_evento_pkey on alertas_evento a  (cost=0.29..0.54 rows=1 width=30) (actual time=0.001..0.001 rows=0.01 loops=3762)
+                                      Index Cond: (evento_id = e.evento_id)
+                                      Filter: ((nivel)::text = 'critica'::text)
+                                      Rows Removed by Filter: 0
+                                      Index Searches: 3762
+                                      Buffers: shared hit=7682
+                    ->  Index Scan using pacientes_pkey on pacientes p  (cost=0.14..0.17 rows=1 width=360) (actual time=0.005..0.006 rows=1.00 loops=21)
+                          Index Cond: ((paciente_id)::text = (e.paciente_id)::text)
+                          Index Searches: 21
+                          Buffers: shared hit=42
+              ->  Index Scan using camas_pkey on camas c  (cost=0.15..8.17 rows=1 width=62) (actual time=0.007..0.007 rows=1.00 loops=21)
+                    Index Cond: ((cama_id)::text = (h.cama_id)::text)
+                    Index Searches: 21
+                    Buffers: shared hit=40 read=2
+        ->  Index Scan using medicos_pkey on medicos m  (cost=0.14..8.16 rows=1 width=296) (actual time=0.005..0.005 rows=1.00 loops=21)
+              Index Cond: ((medico_id)::text = (h.medico_id)::text)
+              Index Searches: 21
+              Buffers: shared hit=40 read=2
+Planning:
+  Buffers: shared hit=215 read=11
+Planning Time: 10.399 ms
+Execution Time: 70.411 ms

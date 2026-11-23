@@ -1,0 +1,760 @@
+[
+  {
+    "_id": "TLC-00001",
+    "paciente_id": "PAC002",
+    "medico_id": "MED002",
+    "hospitalizacion_origen": "HOSP002",
+    "inicio": {
+      "$date": "2026-11-03T17:30:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_android",
+    "duracion_min": 28,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-03T17:30:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-03T17:41:45.993Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 649
+      },
+      {
+        "ts": {
+          "$date": "2026-11-03T17:58:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 151,
+      "cortes": 0,
+      "resolucion": "720p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "144/69"
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 5,
+      "comentario": "Muy util"
+    }
+  },
+  {
+    "_id": "TLC-00002",
+    "paciente_id": "PAC008",
+    "medico_id": "MED001",
+    "hospitalizacion_origen": "HOSP008",
+    "inicio": {
+      "$date": "2026-11-25T20:30:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_android",
+    "duracion_min": 34,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-25T20:30:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-25T20:43:35.191Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 422
+      },
+      {
+        "ts": {
+          "$date": "2026-11-25T21:02:05.520Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 504
+      },
+      {
+        "ts": {
+          "$date": "2026-11-25T21:04:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 437,
+      "cortes": 0,
+      "resolucion": "720p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "112/77",
+      "glucometria_mg_dl": 201
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 3,
+      "comentario": "Muy util"
+    }
+  },
+  {
+    "_id": "TLC-00003",
+    "paciente_id": "PAC008",
+    "medico_id": "MED001",
+    "hospitalizacion_origen": "HOSP008",
+    "inicio": {
+      "$date": "2026-11-22T02:30:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_android",
+    "duracion_min": 26,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-22T02:30:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-22T02:56:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 100,
+      "cortes": 0,
+      "resolucion": "1080p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "152/97",
+      "temperatura_c": 37.1,
+      "glucometria_mg_dl": 109
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 5,
+      "comentario": null
+    }
+  },
+  {
+    "_id": "TLC-00004",
+    "paciente_id": "PAC002",
+    "medico_id": "MED002",
+    "hospitalizacion_origen": "HOSP002",
+    "inicio": {
+      "$date": "2026-11-06T17:10:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_ios",
+    "duracion_min": 12,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-06T17:10:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-06T17:11:03.500Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 689
+      },
+      {
+        "ts": {
+          "$date": "2026-11-06T17:15:58.948Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 69
+      },
+      {
+        "ts": {
+          "$date": "2026-11-06T17:22:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 250,
+      "cortes": 1,
+      "resolucion": "1080p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "129/95",
+      "temperatura_c": 37.8
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 4,
+      "comentario": "Muy util"
+    }
+  },
+  {
+    "_id": "TLC-00005",
+    "paciente_id": "PAC005",
+    "medico_id": "MED005",
+    "hospitalizacion_origen": "HOSP005",
+    "inicio": {
+      "$date": "2026-11-13T19:35:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_android",
+    "duracion_min": 28,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-13T19:35:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-13T19:38:36.553Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 359
+      },
+      {
+        "ts": {
+          "$date": "2026-11-13T19:49:23.881Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 723
+      },
+      {
+        "ts": {
+          "$date": "2026-11-13T19:51:03.608Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 410
+      },
+      {
+        "ts": {
+          "$date": "2026-11-13T19:56:10.064Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 276
+      },
+      {
+        "ts": {
+          "$date": "2026-11-13T20:03:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 190,
+      "cortes": 3,
+      "resolucion": "720p"
+    },
+    "signos_reportados": {
+      "temperatura_c": 36.6
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 4,
+      "comentario": "Se corto el audio"
+    }
+  },
+  {
+    "_id": "TLC-00006",
+    "paciente_id": "PAC010",
+    "medico_id": "MED003",
+    "hospitalizacion_origen": "HOSP010",
+    "inicio": {
+      "$date": "2026-11-10T03:40:00Z"
+    },
+    "estado": "interrumpida",
+    "plataforma": "app_ios",
+    "duracion_min": 14,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-10T03:40:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-10T03:42:48.214Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 215
+      },
+      {
+        "ts": {
+          "$date": "2026-11-10T03:42:57.524Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 350
+      },
+      {
+        "ts": {
+          "$date": "2026-11-10T03:43:40.125Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 637
+      },
+      {
+        "ts": {
+          "$date": "2026-11-10T03:54:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 159,
+      "cortes": 0,
+      "resolucion": "1080p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "148/83",
+      "glucometria_mg_dl": 106
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 4,
+      "comentario": "La app es lenta"
+    }
+  },
+  {
+    "_id": "TLC-00007",
+    "paciente_id": "PAC002",
+    "medico_id": "MED002",
+    "hospitalizacion_origen": "HOSP002",
+    "inicio": {
+      "$date": "2026-10-20T23:30:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "web",
+    "duracion_min": 8,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-10-20T23:30:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-10-20T23:33:47.588Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 125
+      },
+      {
+        "ts": {
+          "$date": "2026-10-20T23:34:59.676Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 584
+      },
+      {
+        "ts": {
+          "$date": "2026-10-20T23:35:40.252Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 357
+      },
+      {
+        "ts": {
+          "$date": "2026-10-20T23:38:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 339,
+      "cortes": 1,
+      "resolucion": "720p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "109/77"
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 3,
+      "comentario": "Se corto el audio"
+    }
+  },
+  {
+    "_id": "TLC-00008",
+    "paciente_id": "PAC002",
+    "medico_id": "MED002",
+    "hospitalizacion_origen": "HOSP002",
+    "inicio": {
+      "$date": "2026-11-08T19:10:00Z"
+    },
+    "estado": "no_asistio",
+    "plataforma": "app_android"
+  },
+  {
+    "_id": "TLC-00009",
+    "paciente_id": "PAC008",
+    "medico_id": "MED001",
+    "hospitalizacion_origen": "HOSP008",
+    "inicio": {
+      "$date": "2026-11-21T20:10:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "web",
+    "duracion_min": 26,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-21T20:10:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T20:15:58.945Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 136
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T20:16:14.065Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 761
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T20:34:14.174Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 378
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T20:36:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 182,
+      "cortes": 1,
+      "resolucion": "480p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "111/76",
+      "temperatura_c": 36.3
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 3,
+      "comentario": "La app es lenta"
+    }
+  },
+  {
+    "_id": "TLC-00010",
+    "paciente_id": "PAC005",
+    "medico_id": "MED005",
+    "hospitalizacion_origen": "HOSP005",
+    "inicio": {
+      "$date": "2026-11-21T03:55:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "web",
+    "duracion_min": 35,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-21T03:55:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T04:03:12.086Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 706
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T04:12:24.713Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 135
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T04:27:51.951Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 508
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T04:30:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 211,
+      "cortes": 1,
+      "resolucion": "1080p"
+    },
+    "signos_reportados": {
+      "temperatura_c": 36.5
+    }
+  },
+  {
+    "_id": "TLC-00011",
+    "paciente_id": "PAC004",
+    "medico_id": "MED004",
+    "hospitalizacion_origen": "HOSP004",
+    "inicio": {
+      "$date": "2026-11-04T02:40:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "web",
+    "duracion_min": 30,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-04T02:40:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-04T03:06:40.955Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 204
+      },
+      {
+        "ts": {
+          "$date": "2026-11-04T03:10:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 350,
+      "cortes": 0,
+      "resolucion": "1080p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "110/81",
+      "temperatura_c": 36.3
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 4,
+      "comentario": "La app es lenta"
+    }
+  },
+  {
+    "_id": "TLC-00012",
+    "paciente_id": "PAC006",
+    "medico_id": "MED003",
+    "hospitalizacion_origen": "HOSP006",
+    "inicio": {
+      "$date": "2026-10-21T19:00:00Z"
+    },
+    "estado": "interrumpida",
+    "plataforma": "app_ios",
+    "duracion_min": 29,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-10-21T19:00:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-10-21T19:29:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 89,
+      "cortes": 0,
+      "resolucion": "480p"
+    },
+    "signos_reportados": {
+      "temperatura_c": 37.4
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 5,
+      "comentario": "Buena atencion"
+    }
+  },
+  {
+    "_id": "TLC-00013",
+    "paciente_id": "PAC010",
+    "medico_id": "MED003",
+    "hospitalizacion_origen": "HOSP010",
+    "inicio": {
+      "$date": "2026-11-21T19:20:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_ios",
+    "duracion_min": 23,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-21T19:20:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T19:35:09.127Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 227
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T19:36:43.910Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 368
+      },
+      {
+        "ts": {
+          "$date": "2026-11-21T19:43:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 212,
+      "cortes": 1,
+      "resolucion": "1080p"
+    },
+    "signos_reportados": {
+      "temperatura_c": 36.2,
+      "glucometria_mg_dl": 197
+    }
+  },
+  {
+    "_id": "TLC-00014",
+    "paciente_id": "PAC001",
+    "medico_id": "MED001",
+    "hospitalizacion_origen": "HOSP001",
+    "inicio": {
+      "$date": "2026-10-26T20:20:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "web",
+    "duracion_min": 27,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-10-26T20:20:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-10-26T20:29:46.571Z"
+        },
+        "tipo": "reconexion",
+        "latencia_ms": 733
+      },
+      {
+        "ts": {
+          "$date": "2026-10-26T20:32:46.796Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 409
+      },
+      {
+        "ts": {
+          "$date": "2026-10-26T20:37:28.466Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 538
+      },
+      {
+        "ts": {
+          "$date": "2026-10-26T20:47:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 104,
+      "cortes": 1,
+      "resolucion": "480p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "112/93",
+      "glucometria_mg_dl": 213
+    },
+    "encuesta": {
+      "satisfaccion_1a5": 4,
+      "comentario": "Buena atencion"
+    }
+  },
+  {
+    "_id": "TLC-00015",
+    "paciente_id": "PAC002",
+    "medico_id": "MED002",
+    "hospitalizacion_origen": "HOSP002",
+    "inicio": {
+      "$date": "2026-11-05T18:50:00Z"
+    },
+    "estado": "completada",
+    "plataforma": "app_android",
+    "duracion_min": 20,
+    "eventos_conexion": [
+      {
+        "ts": {
+          "$date": "2026-11-05T18:50:00Z"
+        },
+        "tipo": "conexion",
+        "detalle": "Paciente ingresa a la sala"
+      },
+      {
+        "ts": {
+          "$date": "2026-11-05T18:56:55.025Z"
+        },
+        "tipo": "cambio_resolucion",
+        "latencia_ms": 111
+      },
+      {
+        "ts": {
+          "$date": "2026-11-05T18:57:58.232Z"
+        },
+        "tipo": "compartir_pantalla",
+        "latencia_ms": 888
+      },
+      {
+        "ts": {
+          "$date": "2026-11-05T19:10:00Z"
+        },
+        "tipo": "desconexion"
+      }
+    ],
+    "calidad": {
+      "latencia_prom_ms": 281,
+      "cortes": 0,
+      "resolucion": "720p"
+    },
+    "signos_reportados": {
+      "presion_arterial": "159/90",
+      "glucometria_mg_dl": 113
+    }
+  }
+]

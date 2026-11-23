@@ -1,0 +1,13 @@
+[1] MongoDB: 21 eventos con alerta crítica desde 2026-11-21 00:00 UTC -> pacientes ['PAC003']  (3.6 ms)
+[2] PostgreSQL: identidad de 1 pacientes activos  (22.8 ms)
+
+[3] TABLERO DE ALERTAS CRÍTICAS (unión hecha por la aplicación)
+================================================================================================
+Luz Dary Henao Cardona (CC 32654112, 51 años) | Medicina Interna - cama 302 | Médico: Dr. Oscar Giraldo
+   Contacto: Camilo Henao 3148891122
+   Alertas críticas: {'HIPERGLUCEMIA': 21}
+     - 2026-11-21 23:59:06  GLU-H03  HIPERGLUCEMIA  Glucosa 331 mg/dL
+     - 2026-11-21 23:50:59  GLU-H03  HIPERGLUCEMIA  Glucosa 335 mg/dL
+     - 2026-11-21 19:44:49  GLU-H03  HIPERGLUCEMIA  Glucosa 348 mg/dL
+------------------------------------------------------------------------------------------------
+Tiempo total de la consulta híbrida: 26.6 ms

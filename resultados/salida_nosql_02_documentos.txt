@@ -1,0 +1,136 @@
+
+=== 1. Tres documentos reales con FORMAS DISTINTAS en la misma colección ===
+{
+  _id: 55,
+  paciente_id: 'PAC009',
+  hospitalizacion_id: 'HOSP009',
+  dispositivo_id: 'MON-H09',
+  tipo_dispositivo: 'monitor_multiparametro',
+  ts: ISODate('2026-10-09T17:19:40.000Z'),
+  lecturas: {
+    fc_lpm: 81,
+    spo2_pct: 98,
+    pa_sistolica: 129,
+    pa_diastolica: 78,
+    fr_rpm: 13
+  },
+  meta: {
+    bateria_pct: 6,
+    firmware: 'v2.1.0',
+    red: 'wifi'
+  },
+  alertas: [
+    {
+      codigo: 'BATERIA_BAJA',
+      nivel: 'info',
+      mensaje: 'Bateria 6%'
+    }
+  ]
+}
+{
+  _id: 52,
+  paciente_id: 'PAC009',
+  hospitalizacion_id: 'HOSP009',
+  dispositivo_id: 'BOM-H09',
+  tipo_dispositivo: 'bomba_infusion',
+  ts: ISODate('2026-10-09T17:18:28.000Z'),
+  lecturas: {
+    medicamento: 'Insulina cristalina',
+    velocidad_ml_h: 63.9,
+    volumen_restante_ml: 660.4
+  },
+  meta: {
+    bateria_pct: 6,
+    firmware: 'v2.1.0',
+    red: 'wifi'
+  },
+  alertas: [
+    {
+      codigo: 'BATERIA_BAJA',
+      nivel: 'info',
+      mensaje: 'Bateria 6%'
+    }
+  ]
+}
+{
+  _id: 48,
+  paciente_id: 'PAC009',
+  hospitalizacion_id: 'HOSP009',
+  dispositivo_id: 'GLU-H09',
+  tipo_dispositivo: 'glucometro',
+  ts: ISODate('2026-10-09T17:16:12.000Z'),
+  lecturas: {
+    glucosa_mg_dl: 58,
+    momento_toma: 'ayunas'
+  },
+  meta: {
+    bateria_pct: 43,
+    firmware: 'v2.1.3',
+    red: 'ethernet'
+  },
+  alertas: [
+    {
+      codigo: 'HIPOGLUCEMIA',
+      nivel: 'critica',
+      mensaje: 'Glucosa 58 mg/dL'
+    }
+  ]
+}
+
+=== 2. Una sesión de teleconsulta (subdocumentos + arreglo de logs) ===
+{
+  _id: 'TLC-00001',
+  paciente_id: 'PAC002',
+  medico_id: 'MED002',
+  hospitalizacion_origen: 'HOSP002',
+  inicio: ISODate('2026-11-03T17:30:00.000Z'),
+  estado: 'completada',
+  plataforma: 'app_android',
+  duracion_min: 28,
+  eventos_conexion: [
+    {
+      ts: ISODate('2026-11-03T17:30:00.000Z'),
+      tipo: 'conexion',
+      detalle: 'Paciente ingresa a la sala'
+    },
+    {
+      ts: ISODate('2026-11-03T17:41:45.993Z'),
+      tipo: 'cambio_resolucion',
+      latencia_ms: 649
+    },
+    {
+      ts: ISODate('2026-11-03T17:58:00.000Z'),
+      tipo: 'desconexion'
+    }
+  ],
+  calidad: {
+    latencia_prom_ms: 151,
+    cortes: 0,
+    resolucion: '720p'
+  },
+  signos_reportados: {
+    presion_arterial: '144/69'
+  },
+  encuesta: {
+    satisfaccion_1a5: 5,
+    comentario: 'Muy util'
+  }
+}
+
+=== 3. Flexibilidad: llega un sensor NUEVO (capnógrafo) con un campo nuevo ===
+{
+  acknowledged: true,
+  insertedId: 90000001
+}
+
+=== 4. El validador $jsonSchema SÍ protege lo mínimo: sin paciente_id se rechaza ===
+RECHAZADO -> Document failed validation
+
+=== 5. Pero NO conoce a PostgreSQL: un paciente inexistente pasa (consistencia la da la app) ===
+{
+  acknowledged: true,
+  insertedId: 90000002
+}
+Por eso el simulador de ingesta consulta core.asignaciones_dispositivo en PostgreSQL antes de escribir.
+
+Documentos de demostración eliminados.

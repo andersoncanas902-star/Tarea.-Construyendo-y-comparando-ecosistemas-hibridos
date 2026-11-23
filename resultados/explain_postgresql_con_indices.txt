@@ -1,0 +1,95 @@
+===== O2 pg_columnas (con_indices) =====
+Index Scan using ix_ev_ts on eventos_telemetria e  (cost=0.42..2255.16 rows=265 width=175) (actual time=0.044..1.464 rows=483.00 loops=1)
+  Index Cond: ((ts >= '2026-11-21 13:00:00-05'::timestamp with time zone) AND (ts < '2026-11-21 19:00:00-05'::timestamp with time zone))
+  Filter: ((paciente_id)::text = 'PAC003'::text)
+  Rows Removed by Filter: 469
+  Index Searches: 1
+  Buffers: shared hit=1005 read=2
+  SubPlan 1
+    ->  Aggregate  (cost=8.31..8.32 rows=1 width=32) (actual time=0.002..0.002 rows=1.00 loops=483)
+          Buffers: shared hit=986
+          ->  Index Scan using alertas_evento_pkey on alertas_evento a  (cost=0.29..8.30 rows=1 width=32) (actual time=0.001..0.001 rows=0.04 loops=483)
+                Index Cond: (evento_id = e.evento_id)
+                Index Searches: 483
+                Buffers: shared hit=986
+Planning:
+  Buffers: shared hit=129 read=6
+Planning Time: 0.642 ms
+Execution Time: 1.523 ms
+
+===== O3 pg_columnas (con_indices) =====
+Finalize GroupAggregate  (cost=5711.89..5715.41 rows=11 width=51) (actual time=159.006..164.919 rows=11.00 loops=1)
+  Group Key: paciente_id
+  Buffers: shared hit=3216
+  ->  Gather Merge  (cost=5711.89..5714.92 rows=26 width=51) (actual time=158.990..164.892 rows=13.00 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=3216
+        ->  Sort  (cost=4711.87..4711.89 rows=11 width=51) (actual time=25.503..25.504 rows=4.33 loops=3)
+              Sort Key: paciente_id
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=3216
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=4711.57..4711.68 rows=11 width=51) (actual time=25.453..25.454 rows=4.33 loops=3)
+                    Group Key: paciente_id
+                    Batches: 1  Memory Usage: 32kB
+                    Buffers: shared hit=3200
+                    Worker 0:  Batches: 1  Memory Usage: 32kB
+                    Worker 1:  Batches: 1  Memory Usage: 32kB
+                    ->  Parallel Seq Scan on eventos_telemetria  (cost=0.00..4241.67 rows=37592 width=13) (actual time=0.011..13.755 rows=29978.67 loops=3)
+                          Filter: ((tipo_dispositivo)::text = 'monitor_multiparametro'::text)
+                          Rows Removed by Filter: 36688
+                          Buffers: shared hit=3200
+Planning:
+  Buffers: shared hit=3
+Planning Time: 0.141 ms
+Execution Time: 164.984 ms
+
+===== O4 solo_pg (con_indices) =====
+Sort  (cost=221.25..221.26 rows=1 width=610) (actual time=7.643..7.648 rows=21.00 loops=1)
+  Sort Key: e.ts DESC
+  Sort Method: quicksort  Memory: 27kB
+  Buffers: shared hit=7739 read=10
+  ->  Nested Loop Left Join  (cost=9.30..221.24 rows=1 width=610) (actual time=0.217..7.626 rows=21.00 loops=1)
+        Buffers: shared hit=7739 read=10
+        ->  Nested Loop Left Join  (cost=9.16..212.94 rows=1 width=422) (actual time=0.206..7.550 rows=21.00 loops=1)
+              Buffers: shared hit=7697 read=10
+              ->  Nested Loop  (cost=9.01..204.74 rows=1 width=436) (actual time=0.190..7.456 rows=21.00 loops=1)
+                    Join Filter: ((p.paciente_id)::text = (h.paciente_id)::text)
+                    Buffers: shared hit=7655 read=10
+                    ->  Nested Loop  (cost=8.87..204.56 rows=1 width=159) (actual time=0.167..7.355 rows=21.00 loops=1)
+                          Buffers: shared hit=7613 read=10
+                          ->  Hash Join  (cost=8.59..196.88 rows=16 width=145) (actual time=0.065..2.588 rows=3762.00 loops=1)
+                                Hash Cond: ((e.paciente_id)::text = (h.paciente_id)::text)
+                                Buffers: shared hit=70 read=8
+                                ->  Index Scan using ix_ev_ts on eventos_telemetria e  (cost=0.42..174.41 rows=3771 width=31) (actual time=0.034..0.946 rows=3762.00 loops=1)
+                                      Index Cond: (ts >= '2026-11-20 19:00:00-05'::timestamp with time zone)
+                                      Index Searches: 1
+                                      Buffers: shared hit=68 read=8
+                                ->  Hash  (cost=8.16..8.16 rows=1 width=116) (actual time=0.023..0.024 rows=2.00 loops=1)
+                                      Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                      Buffers: shared hit=2
+                                      ->  Index Scan using uq_una_hosp_activa_por_cama on hospitalizaciones h  (cost=0.14..8.16 rows=1 width=116) (actual time=0.016..0.018 rows=2.00 loops=1)
+                                            Index Searches: 1
+                                            Buffers: shared hit=2
+                          ->  Index Scan using ix_alerta_critica on alertas_evento a  (cost=0.28..0.47 rows=1 width=30) (actual time=0.001..0.001 rows=0.01 loops=3762)
+                                Index Cond: (evento_id = e.evento_id)
+                                Index Searches: 3762
+                                Buffers: shared hit=7543 read=2
+                    ->  Index Scan using pacientes_pkey on pacientes p  (cost=0.14..0.17 rows=1 width=360) (actual time=0.004..0.004 rows=1.00 loops=21)
+                          Index Cond: ((paciente_id)::text = (e.paciente_id)::text)
+                          Index Searches: 21
+                          Buffers: shared hit=42
+              ->  Index Scan using camas_pkey on camas c  (cost=0.15..8.17 rows=1 width=62) (actual time=0.004..0.004 rows=1.00 loops=21)
+                    Index Cond: ((cama_id)::text = (h.cama_id)::text)
+                    Index Searches: 21
+                    Buffers: shared hit=42
+        ->  Index Scan using medicos_pkey on medicos m  (cost=0.14..8.16 rows=1 width=296) (actual time=0.003..0.003 rows=1.00 loops=21)
+              Index Cond: ((medico_id)::text = (h.medico_id)::text)
+              Index Searches: 21
+              Buffers: shared hit=42
+Planning:
+  Buffers: shared hit=23 read=1
+Planning Time: 1.776 ms
+Execution Time: 7.753 ms
